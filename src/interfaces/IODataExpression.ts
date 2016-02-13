@@ -1,0 +1,3 @@
+interface IODataOperator {
+  operator:string;
+}

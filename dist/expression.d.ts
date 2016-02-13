@@ -1,0 +1,37 @@
+import { IExpression } from './expressions/iexpression';
+export declare class Expression {
+    static add(left: number, right: number): IExpression;
+    static add(left: IExpression, right: number): IExpression;
+    static and(left: IExpression, right: IExpression): IExpression;
+    static divide(left: number, right: number): IExpression;
+    static divide(left: IExpression, right: number): IExpression;
+    static equals<Type, T>(param: (type: Type) => T, value: IExpression): IExpression;
+    static equals<Type, T>(param: (type: Type) => T, value: T): IExpression;
+    static equals<Type, T>(param: (type: Type) => T, value: any): IExpression;
+    static equals<Type, T>(param: IExpression, value: any): any;
+    static gt<Type, T>(left: (type: Type) => T, value: number): IExpression;
+    static gt(left: IExpression, value: number): IExpression;
+    static gte<Type, T>(left: (type: Type) => T, value: number): IExpression;
+    static gte(left: IExpression, value: number): IExpression;
+    static lt<Type, T>(left: (type: Type) => T, value: number): IExpression;
+    static lt(left: IExpression, value: number): IExpression;
+    static lte<Type, T>(left: (type: Type) => T, value: number): IExpression;
+    static lte(left: IExpression, value: number): IExpression;
+    static len<Type, T>(param: (type: Type) => T): IExpression;
+    static mod(left: number, right: number): IExpression;
+    static multiply(left: number, right: number): IExpression;
+    static nameof<Type, T>(param: (type: Type) => T): string;
+    static not_equals<Type, T>(param: (type: Type) => T, value: IExpression): IExpression;
+    static not_equals<Type, T>(param: (type: Type) => T, value: T): IExpression;
+    static or(left: IExpression, right: IExpression): IExpression;
+    static subtract(left: number, right: number): IExpression;
+    static cast<T, Type>(type: string, param?: (type: Type) => T): IExpression;
+    static top(param: number): IExpression;
+    static skip(param: number): IExpression;
+    static trim(v: string): IExpression;
+    static now(): IExpression;
+    static contains<Type, T>(param: (type: Type) => T, value: T): IExpression;
+    static contains<Type, T>(param: (type: Type) => T, value: IExpression): IExpression;
+    static any<Type, T>(param: (type: Type) => T, ex: IExpression): IExpression;
+    private static expressionOrValue(value);
+}

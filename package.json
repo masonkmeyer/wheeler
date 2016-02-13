@@ -1,0 +1,19 @@
+{
+  "name": "typescripttests",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "lint": "tslint --config tslint.json",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.1",
+    "tslint": "^3.3.0",
+    "typescript": "^1.7.3"
+  },
+  "dependencies": {
+    "systemjs": "^0.19.14"
+  }
+}

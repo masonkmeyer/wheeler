@@ -1,0 +1,32 @@
+import { IExpression } from './expressions/iexpression';
+import { IODataSettings } from './interfaces/IODataSettings';
+export declare class QueryBuilder<T> {
+    private $filters;
+    private $top;
+    private $skip;
+    private $orderBy;
+    private $inlineCount;
+    private $select;
+    private $expand;
+    private $count;
+    private $search;
+    any<TValue>(param: (type: T) => any[], ex: IExpression): QueryBuilder<T>;
+    filter(value: IExpression): QueryBuilder<T>;
+    equals<TValue>(param: (type: T) => TValue, value: IExpression): QueryBuilder<T>;
+    equals<TValue>(param: (type: T) => TValue, value: TValue): QueryBuilder<T>;
+    contains<TValue>(param: (type: T) => TValue, value: IExpression): QueryBuilder<T>;
+    lt<TValue>(param: (type: T) => TValue, value: number): QueryBuilder<T>;
+    multiply(left: number, right: number): QueryBuilder<T>;
+    top(limit: number): QueryBuilder<T>;
+    skip(num: number): QueryBuilder<T>;
+    inlineCount(): QueryBuilder<T>;
+    orderBy<TValue>(...params: ((type: T) => TValue)[]): QueryBuilder<T>;
+    orderByDescending<TValue>(...params: ((type: T) => TValue)[]): QueryBuilder<T>;
+    select<TValue>(...params: ((type: T) => TValue)[]): QueryBuilder<T>;
+    search(value: string): QueryBuilder<T>;
+    expand<TValue>(...params: ((type: T) => TValue)[]): QueryBuilder<T>;
+    count(): QueryBuilder<T>;
+    toQuery(): IODataSettings;
+    private propertiesToStrings<TValue>(...params);
+    private expressionToString(expression);
+}
