@@ -66,30 +66,30 @@ export class Expression {
         return new Equals(left, right);
     }
 
-    public static gt<Type, T>(left: (type: Type) => T, value: number): IExpression
-    public static gt(left: IExpression, value: number): IExpression
-    public static gt(left: any, value: number): IExpression {
+    public static gt<Type, T>(left: (type: Type) => T, value: any): IExpression
+    public static gt(left: IExpression, value: any): IExpression
+    public static gt(left: any, value: any): IExpression {
         left = Expression.expressionOrValue(left);
         return new GreaterThan(left, new ValueExpression(value));
     }
 
-    public static gte<Type, T>(left: (type: Type) => T, value: number): IExpression
-    public static gte(left: IExpression, value: number): IExpression
-    public static gte(left: any, value: number): IExpression {
+    public static gte<Type, T>(left: (type: Type) => T, value: any): IExpression
+    public static gte(left: IExpression, value: any): IExpression
+    public static gte(left: any, value: any): IExpression {
         left = Expression.expressionOrValue(left);
         return new GreaterThanOrEqualTo(left, new ValueExpression(value));
     }
 
-    public static lt<Type, T>(left: (type: Type) => T, value: number): IExpression
-    public static lt(left: IExpression, value: number): IExpression
-    public static lt(left: any, value: number): IExpression {
+    public static lt<Type, T>(left: (type: Type) => T, value: any): IExpression
+    public static lt(left: IExpression, value: any): IExpression
+    public static lt(left: any, value: any): IExpression {
         left = Expression.expressionOrValue(left);
         return new LessThan(left, new ValueExpression(value));
     }
 
-    public static lte<Type, T>(left: (type: Type) => T, value: number): IExpression
-    public static lte(left: IExpression, value: number): IExpression
-    public static lte(left: any, value: number): IExpression {
+    public static lte<Type, T>(left: (type: Type) => T, value: any): IExpression
+    public static lte(left: IExpression, value: any): IExpression
+    public static lte(left: any, value: any): IExpression {
         left = Expression.expressionOrValue(left);
         return new LessThanOrEqualTo(left, new ValueExpression(value));
     }
@@ -103,8 +103,11 @@ export class Expression {
         return new Modulo(new ValueExpression(left), new ValueExpression(right));
     }
 
-    public static multiply(left: number, right: number): IExpression {
-        return new Multiply(new ValueExpression(left), new ValueExpression(right));
+    public static multiply(left: number, right: number): IExpression
+    public static multiply(left: IExpression, right: number): IExpression
+    public static multiply(left: any, right: number): IExpression {
+        left = Expression.expressionOrValue(left);
+        return new Multiply(left, new ValueExpression(right));
     }
 
     public static nameof<Type, T>(param: (type: Type) => T): string {
@@ -142,8 +145,11 @@ export class Expression {
         return new Or(left, right);
     }
 
-    public static subtract(left: number, right: number): IExpression {
-        return new Subtract(new ValueExpression(left), new ValueExpression(right));
+    public static subtract(left: number, right: any): IExpression
+    public static subtract(left: IExpression, right: any): IExpression
+    public static subtract(left: any, right: any): IExpression {
+        left = Expression.expressionOrValue(left);
+        return new Subtract(left, new ValueExpression(right));
     }
 
     public static cast<T, Type>(type: string, param?: (type: Type) => T): IExpression {
@@ -203,7 +209,9 @@ export class Expression {
     }
 
     private static expressionOrValue(value: any): IExpression {
-        if (!value.accept) {
+        if (typeof value === 'function') {
+            value = new PropertyExpression(Expression.nameof(value));
+        } else if (!value.accept) {
             value = new ValueExpression(value)
         }
 

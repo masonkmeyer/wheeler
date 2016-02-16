@@ -40,9 +40,27 @@ export class QueryBuilder<T> {
     return this;
   }
 
-  public lt<TValue>(param:(type: T) => TValue, value: number): QueryBuilder<T>
+  public lt<TValue>(param:(type: T) => TValue, value: any): QueryBuilder<T>
   {
     this.$filters.push(Expression.lt(param, value));
+    return this;
+  }
+
+  public lte<TValue>(param:(type: T) => TValue, value: any): QueryBuilder<T>
+  {
+    this.$filters.push(Expression.lte(param, value));
+    return this;
+  }
+
+  public gt<TValue>(param:(type: T) => TValue, value: any): QueryBuilder<T>
+  {
+    this.$filters.push(Expression.gt(param, value));
+    return this;
+  }
+
+  public gte<TValue>(param:(type: T) => TValue, value: any): QueryBuilder<T>
+  {
+    this.$filters.push(Expression.gte(param, value));
     return this;
   }
 

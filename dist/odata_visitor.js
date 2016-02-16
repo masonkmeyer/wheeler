@@ -50,7 +50,18 @@ var ODataVisitor = (function () {
         this.items.push("" + ex.operator + left);
     };
     ODataVisitor.prototype.visitValueExpression = function (ex) {
-        var result = typeof ex.value() === 'string' ? "'" + ex.value().toString() + "'" : ex.value().toString();
+        var result;
+        var val = ex.value();
+        if (val instanceof Date) {
+            result = "datetime'" + val.toISOString() + "'";
+        }
+        else if (typeof val === 'string') {
+            var isRegex = val.match(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/);
+            result = isRegex ? "guid'" + ex.value().toString() + "'" : "'" + ex.value().toString() + "'";
+        }
+        else {
+            result = val.toString();
+        }
         this.items.push(result);
     };
     ODataVisitor.prototype.visitPropertyExpression = function (ex) {

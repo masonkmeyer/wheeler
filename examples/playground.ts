@@ -6,14 +6,14 @@ import {Expression} from './../dist/expression';
 import {ODataVisitor} from './../dist/odata_visitor';
 import {And} from './../dist/filters/and';
 
-interface IPerson { FirstName: string; LastName: string; Id: number; FavoriteColor: IColor; }
+interface IPerson { FirstName: string; LastName: string; Id: number; FavoriteColor: IColor; Created: Date; Cache: string; }
 interface IColor { Name: string; Id: number; }
 let service: QueryBuilder<IPerson> = new QueryBuilder<IPerson>();
+
 let query = service
+    .equals(x => x.Cache, '00000000-0000-0000-0000-000000000000')
     .orderByDescending(x => x.Id)
     .toQuery();
-
-console.log(query);
 
 var params = Object.keys(query)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(query[key]))

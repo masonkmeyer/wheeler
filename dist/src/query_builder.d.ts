@@ -15,10 +15,7 @@ export declare class QueryBuilder<T> {
     equals<TValue>(param: (type: T) => TValue, value: IExpression): QueryBuilder<T>;
     equals<TValue>(param: (type: T) => TValue, value: TValue): QueryBuilder<T>;
     contains<TValue>(param: (type: T) => TValue, value: IExpression): QueryBuilder<T>;
-    lt<TValue>(param: (type: T) => TValue, value: any): QueryBuilder<T>;
-    lte<TValue>(param: (type: T) => TValue, value: any): QueryBuilder<T>;
-    gt<TValue>(param: (type: T) => TValue, value: any): QueryBuilder<T>;
-    gte<TValue>(param: (type: T) => TValue, value: any): QueryBuilder<T>;
+    lt<TValue>(param: (type: T) => TValue, value: number): QueryBuilder<T>;
     multiply(left: number, right: number): QueryBuilder<T>;
     top(limit: number): QueryBuilder<T>;
     skip(num: number): QueryBuilder<T>;

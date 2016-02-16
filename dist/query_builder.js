@@ -25,6 +25,18 @@ var QueryBuilder = (function () {
         this.$filters.push(expression_1.Expression.lt(param, value));
         return this;
     };
+    QueryBuilder.prototype.lte = function (param, value) {
+        this.$filters.push(expression_1.Expression.lte(param, value));
+        return this;
+    };
+    QueryBuilder.prototype.gt = function (param, value) {
+        this.$filters.push(expression_1.Expression.gt(param, value));
+        return this;
+    };
+    QueryBuilder.prototype.gte = function (param, value) {
+        this.$filters.push(expression_1.Expression.gte(param, value));
+        return this;
+    };
     QueryBuilder.prototype.multiply = function (left, right) {
         this.$filters.push(expression_1.Expression.multiply(left, right));
         return this;

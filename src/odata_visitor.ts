@@ -56,7 +56,17 @@ export class ODataVisitor implements IExpressionVisitor {
     }
 
     private visitValueExpression(ex: ValueExpression): void {
-        let result = typeof ex.value() === 'string' ? `'${ex.value().toString()}'` : ex.value().toString();
+        let result: string;
+        let val = ex.value();
+        if (val instanceof Date) {
+            result = `datetime'${val.toISOString()}'`;
+        } else if (typeof val === 'string') {
+            let isRegex = val.match(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/);
+            result = isRegex ? `guid'${ex.value().toString()}'` : `'${ex.value().toString()}'`;
+        } else {
+            result = val.toString();
+        }
+
         this.items.push(result);
     }
 

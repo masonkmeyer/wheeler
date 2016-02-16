@@ -77,7 +77,8 @@ var Expression = (function () {
         return new modulo_1.Modulo(new value_expression_1.ValueExpression(left), new value_expression_1.ValueExpression(right));
     };
     Expression.multiply = function (left, right) {
-        return new multiply_1.Multiply(new value_expression_1.ValueExpression(left), new value_expression_1.ValueExpression(right));
+        left = Expression.expressionOrValue(left);
+        return new multiply_1.Multiply(left, new value_expression_1.ValueExpression(right));
     };
     Expression.nameof = function (param) {
         // Replace with nameof when typescript adds it.
@@ -108,7 +109,8 @@ var Expression = (function () {
         return new or_1.Or(left, right);
     };
     Expression.subtract = function (left, right) {
-        return new Subtract_1.Subtract(new value_expression_1.ValueExpression(left), new value_expression_1.ValueExpression(right));
+        left = Expression.expressionOrValue(left);
+        return new Subtract_1.Subtract(left, new value_expression_1.ValueExpression(right));
     };
     Expression.cast = function (type, param) {
         var exps = [];
@@ -153,7 +155,10 @@ var Expression = (function () {
         return new any_1.Any(new property_expression_1.PropertyExpression(propName), ex);
     };
     Expression.expressionOrValue = function (value) {
-        if (!value.accept) {
+        if (typeof value === 'function') {
+            value = new property_expression_1.PropertyExpression(Expression.nameof(value));
+        }
+        else if (!value.accept) {
             value = new value_expression_1.ValueExpression(value);
         }
         return value;
