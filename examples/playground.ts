@@ -31,6 +31,8 @@ fetch(`http://localhost:57736/api/person?${params}`, {
         console.log(JSON.stringify(x))
     }
 });
+
+// NOTE: Here are some other examples
 //.contains<Person, string>((x:Person) => x.first_name, Expression.trim('mas'))
 //.equals((x:Person) => x.inserted_date, Expression.now());
 
