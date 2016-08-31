@@ -1,3 +1,4 @@
+"use strict";
 var BinaryExpression = (function () {
     function BinaryExpression(left, right) {
         this.left = left;
@@ -13,6 +14,6 @@ var BinaryExpression = (function () {
         v.visit(this);
     };
     return BinaryExpression;
-})();
+}());
 exports.BinaryExpression = BinaryExpression;
 //# sourceMappingURL=binary_expression.js.map

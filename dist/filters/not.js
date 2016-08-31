@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -11,6 +12,6 @@ var Not = (function (_super) {
         this.operator = 'not ';
     }
     return Not;
-})(unary_expression_1.UnaryExpression);
+}(unary_expression_1.UnaryExpression));
 exports.Not = Not;
 //# sourceMappingURL=not.js.map

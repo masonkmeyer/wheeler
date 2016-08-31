@@ -3,10 +3,8 @@ import {IExpressionVisitor} from './iexpression_visitor';
 
 export class UnaryExpression implements IExpression, IODataOperator {
     public operator: string = '';
-    private left: IExpression;
 
-    constructor(l: IExpression) {
-        this.left = l;
+    constructor(private left: IExpression) {
     }
 
     public accept(v: IExpressionVisitor): void {

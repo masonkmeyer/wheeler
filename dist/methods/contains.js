@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -12,6 +13,6 @@ var Contains = (function (_super) {
         this.expressions = [left, right];
     }
     return Contains;
-})(method_expression_1.MethodExpression);
+}(method_expression_1.MethodExpression));
 exports.Contains = Contains;
 //# sourceMappingURL=contains.js.map

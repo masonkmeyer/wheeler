@@ -1,4 +1,4 @@
 import { LambdaExpression } from '../expressions/lambda_expression';
-export declare class Any extends LambdaExpression {
+export declare class All extends LambdaExpression {
     methodName: string;
 }

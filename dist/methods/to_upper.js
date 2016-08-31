@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -12,6 +13,6 @@ var ToUpper = (function (_super) {
         this.expressions = [ex];
     }
     return ToUpper;
-})(method_expression_1.MethodExpression);
+}(method_expression_1.MethodExpression));
 exports.ToUpper = ToUpper;
 //# sourceMappingURL=to_upper.js.map

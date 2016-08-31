@@ -1,3 +1,4 @@
+"use strict";
 var LambdaExpression = (function () {
     function LambdaExpression(left, right) {
         this.left = left;
@@ -13,6 +14,6 @@ var LambdaExpression = (function () {
         v.visit(this);
     };
     return LambdaExpression;
-})();
+}());
 exports.LambdaExpression = LambdaExpression;
 //# sourceMappingURL=lambda_expression.js.map

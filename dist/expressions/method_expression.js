@@ -1,3 +1,4 @@
+"use strict";
 var MethodExpression = (function () {
     function MethodExpression() {
         this.expressions = [];
@@ -10,6 +11,6 @@ var MethodExpression = (function () {
         v.visit(this);
     };
     return MethodExpression;
-})();
+}());
 exports.MethodExpression = MethodExpression;
 //# sourceMappingURL=method_expression.js.map

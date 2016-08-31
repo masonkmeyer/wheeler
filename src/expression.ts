@@ -1,28 +1,8 @@
-import {Add} from './filters/add';
-import {And} from './filters/and';
-import {Divide} from './filters/divide';
-import {Equals} from './filters/equals';
-import {GreaterThan} from './filters/gt';
-import {GreaterThanOrEqualTo} from './filters/gte';
-import {LessThan} from './filters/lt';
-import {LessThanOrEqualTo} from './filters/lte';
-import {Length} from './methods/length';
-import {Modulo} from './filters/modulo';
-import {Multiply} from './filters/multiply';
-import {NotEquals} from './filters/not_equals';
-import {Or} from './filters/or';
-import {Subtract} from './filters/Subtract';
-import {Cast} from './methods/cast';
+import {Add, And, Divide, Equals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, Modulo, Multiply, NotEquals, Or, Subtract  } from './filters';
+import {Cast, Length, Contains, Trim, Now} from './methods';
 import {IExpression} from './expressions/iexpression';
-import {UnaryExpression} from './expressions/unary_expression';
-import {BinaryExpression} from './expressions/binary_expression';
-import {ValueExpression} from './expressions/value_expression';
-import {PropertyExpression} from './expressions/property_expression';
-import {Contains} from './methods/contains';
-import {MethodExpression} from './expressions/method_expression';
-import {Trim} from './methods/trim';
-import {Now} from './methods/now';
-import {Any} from './lambdas/any';
+import {UnaryExpression, BinaryExpression, ValueExpression, PropertyExpression, MethodExpression} from './expressions';
+import {All, Any} from './lambdas';
 
 export class Expression {
     public static add(left: number, right: number): IExpression

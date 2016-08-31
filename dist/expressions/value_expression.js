@@ -1,3 +1,4 @@
+"use strict";
 var ValueExpression = (function () {
     function ValueExpression(item) {
         this.item = item;
@@ -10,6 +11,6 @@ var ValueExpression = (function () {
         v.visit(this);
     };
     return ValueExpression;
-})();
+}());
 exports.ValueExpression = ValueExpression;
 //# sourceMappingURL=value_expression.js.map

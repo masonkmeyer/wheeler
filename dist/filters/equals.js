@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -11,6 +12,6 @@ var Equals = (function (_super) {
         this.operator = 'eq';
     }
     return Equals;
-})(binary_expression_1.BinaryExpression);
+}(binary_expression_1.BinaryExpression));
 exports.Equals = Equals;
 //# sourceMappingURL=equals.js.map

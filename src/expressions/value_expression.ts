@@ -2,9 +2,7 @@ import {IExpression} from './iexpression';
 import {IExpressionVisitor} from './iexpression_visitor';
 
 export class ValueExpression implements IExpression {
-    private item: any;
-    constructor(item: any) {
-        this.item = item;
+    constructor(private item: any) {
     }
 
     public value(): any {

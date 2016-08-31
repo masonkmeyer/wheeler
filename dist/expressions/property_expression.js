@@ -1,3 +1,4 @@
+"use strict";
 var PropertyExpression = (function () {
     function PropertyExpression(item) {
         this.item = item;
@@ -10,6 +11,6 @@ var PropertyExpression = (function () {
         v.visit(this);
     };
     return PropertyExpression;
-})();
+}());
 exports.PropertyExpression = PropertyExpression;
 //# sourceMappingURL=property_expression.js.map

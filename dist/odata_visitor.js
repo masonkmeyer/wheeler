@@ -1,3 +1,4 @@
+"use strict";
 var binary_expression_1 = require('./expressions/binary_expression');
 var method_expression_1 = require('./expressions/method_expression');
 var unary_expression_1 = require('./expressions/unary_expression');
@@ -80,6 +81,6 @@ var ODataVisitor = (function () {
         this.items.push(left + "/" + ex.methodName + "(x:x/" + right + ")");
     };
     return ODataVisitor;
-})();
+}());
 exports.ODataVisitor = ODataVisitor;
 //# sourceMappingURL=odata_visitor.js.map

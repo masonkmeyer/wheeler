@@ -1,6 +1,5 @@
 import {LambdaExpression} from '../expressions/lambda_expression';
-import {IExpression} from '../expressions/iexpression';
 
-export class Any extends LambdaExpression {
+export class All extends LambdaExpression {
   public methodName: string = 'all';
 }

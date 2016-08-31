@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -12,6 +13,6 @@ var Minute = (function (_super) {
         this.expressions = [ex];
     }
     return Minute;
-})(method_expression_1.MethodExpression);
+}(method_expression_1.MethodExpression));
 exports.Minute = Minute;
 //# sourceMappingURL=minute.js.map

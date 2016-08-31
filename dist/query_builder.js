@@ -1,3 +1,4 @@
+"use strict";
 var expression_1 = require('./expression');
 var odata_visitor_1 = require('./odata_visitor');
 var and_1 = require('./filters/and');
@@ -135,8 +136,8 @@ var QueryBuilder = (function () {
             params[_i - 0] = arguments[_i];
         }
         var temp = [];
-        for (var _a = 0; _a < params.length; _a++) {
-            var param = params[_a];
+        for (var _a = 0, params_1 = params; _a < params_1.length; _a++) {
+            var param = params_1[_a];
             temp.push(expression_1.Expression.nameof(param));
         }
         return temp;
@@ -147,6 +148,6 @@ var QueryBuilder = (function () {
         return visitor.result();
     };
     return QueryBuilder;
-})();
+}());
 exports.QueryBuilder = QueryBuilder;
 //# sourceMappingURL=query_builder.js.map
